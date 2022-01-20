@@ -14,7 +14,7 @@ public class Constants {
     //日志输出配置：控制台显示（false）/报表和文件中显示（true）
     public static final boolean LOG_TO_FILE = true;
     //Excel文件的路径
-    public static final String EXCEL_FILE_PATH="src/test/resources/api_testcases_futureloan_v3.xls";
+    public static final String EXCEL_FILE_PATH="src/test/resources/api_testcases_futureloan_v2.xls";
     //接口BaseUrl地址
     public static final String BASE_URL="http://api.lemonban.com/futureloan";      //若是ip需写成：类似127.0.0.1:8080格式
     //数据库baseuri

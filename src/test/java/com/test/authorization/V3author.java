@@ -1,6 +1,6 @@
 package com.test.authorization;
 
-import com.lemon.encryption.RSAManager;
+//import com.lemon.encryption.RSAManager;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -57,12 +57,12 @@ public class V3author {
         //2、取到的结果拼接上timestamp
         String str = preStr+timestamp;
         //3、通过RSA加密算法对拼接的结果进行加密，得到sign签名
-        String sign = RSAManager.encryptWithBase64(str);
+//        String sign = RSAManager.encryptWithBase64(str);
 
-        String jsonData = "{\"member_id\":"+memberId+",\"amount\":10000.01,\"timestamp\":\""+timestamp+"\",\"sign\":\""+sign+"\"}";
+//        String jsonData = "{\"member_id\":"+memberId+",\"amount\":10000.01,\"timestamp\":\""+timestamp+"\",\"sign\":\""+sign+"\"}";
         Response res2 =
                 given().
-                        body(jsonData).
+//                        body(jsonData).
                         header("Content-Type", "application/json").
                         header("X-Lemonban-Media-Type", "lemonban.v3").
                         header("Authorization","Bearer "+token).

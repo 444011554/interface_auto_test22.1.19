@@ -18,11 +18,11 @@ import java.util.List;
  * @Forum: http://testingpai.com
  * @Copyright: ©2020 版权所有 湖南省零檬信息技术有限公司
  * @Author: odin
- * @Create: 2021-07-26 15:22
- * @Desc： 充值接口测试
+ * @Create: 2022-01-20 11:55
+ * @Desc： v2
  **/
 
-public class RechargeTest extends BaseTest {
+public class RechargeTestV2 extends BaseTest {
     int memberId;
     String token;
 
@@ -51,21 +51,7 @@ public class RechargeTest extends BaseTest {
     }
 
     @Test(dataProvider = "getRechargeDatas")
-    public void testRecharge(ExcelPojo excelPojo) throws Exception {
-        //timestamp参数
-        long timestamp = System.currentTimeMillis()/1000;     //原本是毫秒除以1000变秒
-        //sign参数
-        //1、取token前50位
-        String token = (String) Environment.envData.get("token");
-        String preStr = token.substring(0,50);     //含头不含尾
-        //2、取到的结果拼接上timestamp
-        String str = preStr+timestamp;
-        //3、通过RSA加密算法对拼接的结果进行加密，得到sign签名
-//        String sign = RSAManager.encryptWithBase64(str);
-        //保存到环境变量中
-        Environment.envData.put("timestamp",timestamp);
-//        Environment.envData.put("sign",sign);
-        //用例执行之前替换{{member_id}} 为环境变量中保存的对应的值
+    public void testRecharge(ExcelPojo excelPojo) {
         excelPojo = casesReplace(excelPojo);
         Response res = request(excelPojo,"充值模块");
         //断言
